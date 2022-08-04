@@ -22,4 +22,4 @@ jobs:
     - name: package box
       run: |
         vagrant halt
-        vagrant package ubuntu
+        vagrant package
