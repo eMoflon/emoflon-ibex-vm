@@ -10,10 +10,10 @@ log () {
 log "Start provisioning."
 
 # Updates
-sudo apt update && sudo apt upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 
 # Java/JDK17
-sudo apt-get install openjdk-17-jdk
+sudo apt-get install -y openjdk-17-jdk
 java --version
 
 log "Finished provisioning."
