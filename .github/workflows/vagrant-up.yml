@@ -4,14 +4,14 @@ on: [push]
 
 jobs:
   vagrant-up:
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
 
     steps:
-    - name: install packages
-      run: |
-        sudo apt-get update && sudo apt-get install -yq virtualbox
-        curl -O https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
-        sudo apt install -yq ./vagrant_2.2.9_x86_64.deb
+#    - name: install packages
+#      run: |
+#        sudo apt-get update && sudo apt-get install -yq virtualbox
+#        curl -O https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+#        sudo apt install -yq ./vagrant_2.2.9_x86_64.deb
     - uses: actions/checkout@v2
     - name: Show Vagrant version
       run: vagrant --version
