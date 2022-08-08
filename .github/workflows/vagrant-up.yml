@@ -1,9 +1,9 @@
-name: vagrant-up
+name: vm-provision
 
 on: [push]
 
 jobs:
-  vagrant-up:
+  vagrant-provision:
     runs-on: self-hosted
 
     steps:
@@ -24,7 +24,9 @@ jobs:
       run: vagrant up
 #    - name: ssh into box after boot
 #      run: vagrant ssh -c "echo 'hello world!'"
-    - name: package box
-      run: |
-        vagrant halt
-        vagrant package
+#    - name: package box
+#      run: |
+#        vagrant halt
+#        vagrant package
+    - name: export virtualbox VMs
+      run: vboxmanage export emoflon -o emoflon.ova

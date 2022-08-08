@@ -25,14 +25,17 @@ log () {
 log "Start provisioning."
 
 # Updates
+log "Installing updates."
 sudo apt-get update
-#sudo apt-get upgrade -y
+sudo apt-get upgrade -y
 
 # Java/JDK17
+log "Installing OpenJDK."
 sudo apt-get install -y openjdk-17-jdk
 #java --version
 
 # eMoflon Eclipse
+log "Installing eMoflon Eclipse."
 sudo apt-get install -y graphviz
 mkdir -p ~/eclipse-apps
 cd ~/eclipse-apps
@@ -55,5 +58,21 @@ fi
 
 unzip -qq -o $ECLIPSE_ARCHIVE.zip
 rm -f $ECLIPSE_ARCHIVE.zip
+
+# Create desktop launcher
+printf "
+[Desktop Entry]\n
+Version=1.0
+Name=eMoflon Eclipse
+Comment=Use eMoflon Eclipse
+GenericName=eMoflon Eclipse
+Exec=/home/vagrant/eclipse-apps/eclipse/eclipse
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/home/vagrant/eclipse-apps/eclipse/icon.xpm
+StartupNotify=true
+" >> /home/vagrant/Desktop/emoflon.desktop
+chmod u+x /home/vagrant/Desktop/emoflon.desktop
 
 log "Finished provisioning."
