@@ -31,4 +31,6 @@ jobs:
 #        vagrant halt
 #        vagrant package
     - name: export virtualbox VMs
-      run: vboxmanage export emoflon -o emoflon.ova
+      run: |
+        vboxmanage controlvm emoflon acpipowerputton
+        vboxmanage export emoflon -o emoflon.ova
