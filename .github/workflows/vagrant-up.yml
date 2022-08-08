@@ -21,7 +21,9 @@ jobs:
     - name: show Vagrant version
       run: vagrant --version
     - name: run vagrant up
-      run: vagrant up
+      run: |
+        vagrant up
+        echo "=> Vagrant run finished."
 #    - name: ssh into box after boot
 #      run: vagrant ssh -c "echo 'hello world!'"
 #    - name: package box
