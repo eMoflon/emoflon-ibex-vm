@@ -62,16 +62,16 @@ rm -f $ECLIPSE_ARCHIVE.zip
 # Create desktop launcher
 printf "
 [Desktop Entry]\n
-Version=1.0
-Name=eMoflon Eclipse
-Comment=Use eMoflon Eclipse
-GenericName=eMoflon Eclipse
-Exec=/home/vagrant/eclipse-apps/eclipse/eclipse
-Terminal=false
-X-MultipleArgs=false
-Type=Application
-Icon=/home/vagrant/eclipse-apps/eclipse/icon.xpm
-StartupNotify=true
+Version=1.0\n
+Name=eMoflon Eclipse\n
+Comment=Use eMoflon Eclipse\n
+GenericName=eMoflon Eclipse\n
+Exec=/home/vagrant/eclipse-apps/eclipse/eclipse\n
+Terminal=false\n
+X-MultipleArgs=false\n
+Type=Application\n
+Icon=/home/vagrant/eclipse-apps/eclipse/icon.xpm\n
+StartupNotify=true\n
 " > /home/vagrant/Desktop/emoflon.desktop
 chmod u+x /home/vagrant/Desktop/emoflon.desktop
 
