@@ -5,5 +5,5 @@ Vagrant.configure("2") do |config|
     # Prevent SharedFoldersEnableSymlinksCreate errors
     config.vm.synced_folder ".", "/vagrant", disabled: true
 
-    config.vm.provision "shell", path: "prov.sh"
+    config.vm.provision "shell", path: "prov.sh", privileged: false
 end
