@@ -60,8 +60,8 @@ unzip -qq -o $ECLIPSE_ARCHIVE.zip
 rm -f $ECLIPSE_ARCHIVE.zip
 
 # Create desktop launcher
-touch /home/vagrant/Desktop/d.txt # workaround
-mv /home/vagrant/Desktop/d.txt /home/vagrant/Desktop/emoflon.desktop
+mkdir -p /home/vagrant/Desktop
+touch /home/vagrant/Desktop/emoflon.desktop
 printf "
 [Desktop Entry]\n
 Version=1.0\n
