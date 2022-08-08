@@ -47,7 +47,7 @@ if [[ ! -f "./$ECLIPSE_ARCHIVE.zip" ]]; then
         | grep "$ECLIPSE_ARCHIVE.zip" \
         | cut -d : -f 2,3 \
         | tr -d \" \
-        | wget -i - \
+        | wget -iq - \
         || :
 fi
 
