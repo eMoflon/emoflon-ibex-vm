@@ -72,7 +72,7 @@ X-MultipleArgs=false
 Type=Application
 Icon=/home/vagrant/eclipse-apps/eclipse/icon.xpm
 StartupNotify=true
-" >> /home/vagrant/Desktop/emoflon.desktop
+" > /home/vagrant/Desktop/emoflon.desktop
 chmod u+x /home/vagrant/Desktop/emoflon.desktop
 
 log "Finished provisioning."
