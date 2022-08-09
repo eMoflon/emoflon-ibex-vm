@@ -45,3 +45,5 @@ Required packages (at least):
 - `grep`
 - `VirtualBox`
 - `vagrant`
+
+**Please keep in mind that your runner (VM) needs the virtualization flag enabled and at least 6 GB of RAM!**

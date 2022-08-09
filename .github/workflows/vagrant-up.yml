@@ -30,7 +30,7 @@ jobs:
 #      run: |
 #        vagrant halt
 #        vagrant package
-    - name: export virtualbox VMs
+    - name: export virtualbox VM
       run: |
         vagrant halt
         vboxmanage export emoflon -o emoflon.ova
@@ -39,6 +39,9 @@ jobs:
       with:
         name: emoflon-ova
         path: emoflon.ova
+    - name: clean up VM afterwards
+      run: | 
+        vboxmanage unregistervm emoflon --delete
 
   # Create a release if running on tag
   create-release:
