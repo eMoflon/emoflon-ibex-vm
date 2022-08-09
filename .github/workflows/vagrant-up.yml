@@ -1,0 +1,36 @@
+name: vm-provision
+
+on: [push]
+
+jobs:
+  vagrant-provision:
+    runs-on: self-hosted
+
+    steps:
+#    - name: install packages
+#      run: |
+#        sudo apt-get update && sudo apt-get install -yq virtualbox
+#        curl -O https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+#        sudo apt install -yq ./vagrant_2.2.9_x86_64.deb
+    - name: clean up old VMs
+      run: | 
+        vboxmanage list vms | \
+        grep -o -P '(?<={).*(?=})' | \
+        while read line ; do vboxmanage unregistervm $line --delete ; done
+    - uses: actions/checkout@v2
+    - name: show Vagrant version
+      run: vagrant --version
+    - name: run vagrant up
+      run: |
+        vagrant up
+        echo "=> Vagrant run finished."
+#    - name: ssh into box after boot
+#      run: vagrant ssh -c "echo 'hello world!'"
+#    - name: package box
+#      run: |
+#        vagrant halt
+#        vagrant package
+    - name: export virtualbox VMs
+      run: |
+        vagrant halt
+        vboxmanage export emoflon -o emoflon.ova
