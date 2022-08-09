@@ -34,3 +34,22 @@ jobs:
       run: |
         vagrant halt
         vboxmanage export emoflon -o emoflon.ova
+    - name: upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: emoflon-ova
+        path: emoflon.ova
+
+  # Create a release if running on tag
+  create-release:
+    needs: [vagrant-provision]
+    runs-on: ubuntu-20.04
+    # Only run on pushed tags (and explicitely ignore scheduled runs)
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/') && github.event_name != 'schedule'
+    steps:
+      - name: collect artifacts
+        uses: actions/download-artifact@master
+      - name: Release emoflon-vm
+        uses: softprops/action-gh-release@v1
+        with:
+          files: emoflon-ova/emoflon.ova
