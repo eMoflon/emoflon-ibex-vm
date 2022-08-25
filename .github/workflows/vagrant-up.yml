@@ -30,7 +30,46 @@ jobs:
 #      run: |
 #        vagrant halt
 #        vagrant package
-    - name: export virtualbox VMs
+    - name: export virtualbox VM
       run: |
         vagrant halt
         vboxmanage export emoflon -o emoflon.ova
+    - name: upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: emoflon-ova
+        path: emoflon.ova
+    - name: clean up VM afterwards
+      run: | 
+        vboxmanage unregistervm emoflon --delete
+
+  # Create a release if running on tag
+  create-release:
+    needs: [vagrant-provision]
+    runs-on: ubuntu-20.04
+    # Only run on pushed tags (and explicitely ignore scheduled runs)
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/') && github.event_name != 'schedule'
+    steps:
+      - name: collect artifacts
+        uses: actions/download-artifact@master
+      - name: create splitted ZIP archive
+        run: |
+          sudo apt-get install -yq zip
+          zip -r -s 1990m emoflon-vm.zip emoflon-ova/emoflon.ova
+      # Due to a bug in the release action, we have to upload all artifacts step-by-step
+      # https://github.com/softprops/action-gh-release/issues/243
+      - name: release emoflon-vm (1)
+        uses: softprops/action-gh-release@v1
+        with:
+          body: "The VM archive can not be directly added to this release because of the size limitation of 2GB per file. Please download the splitted ZIP archive and extract it manually."
+          files: emoflon-vm.zip
+      - name: release emoflon-vm (2)
+        uses: softprops/action-gh-release@v1
+        with:
+          body: "The VM archive can not be directly added to this release because of the size limitation of 2GB per file. Please download the splitted ZIP archive and extract it manually."
+          files: emoflon-vm.z01
+      - name: release emoflon-vm (3)
+        uses: softprops/action-gh-release@v1
+        with:
+          body: "The VM archive can not be directly added to this release because of the size limitation of 2GB per file. Please download the splitted ZIP archive and extract it manually."
+          files: emoflon-vm.z02
