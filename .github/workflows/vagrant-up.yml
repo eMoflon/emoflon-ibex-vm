@@ -54,7 +54,7 @@ jobs:
         uses: actions/download-artifact@master
       - name: create splitted ZIP archive
         run: |
-          apt install -yq zip
+          sudo apt-get install -yq zip
           zip -r -s 1990m emoflon-vm.zip emoflon-ova/emoflon.ova
       - name: release emoflon-vm
         uses: softprops/action-gh-release@v1
