@@ -84,8 +84,7 @@ sudo apt remove -yq \
         thunderbird \
         pidgin \
         gimp \
-        evolution \
-        mines
+        evolution
 sudo apt autoremove -yq
 sudo apt clean cache
 
