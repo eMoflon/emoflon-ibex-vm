@@ -78,14 +78,14 @@ StartupNotify=true\n
 chmod u+x /home/vagrant/Desktop/emoflon.desktop
 
 log "Clean-up"
-sudo apt remove -yq \
+sudo apt-get remove -yq \
         snapd \
         libreoffice-* \
         thunderbird \
         pidgin \
         gimp \
         evolution
-sudo apt autoremove -yq
-sudo apt clean cache
+sudo apt-get autoremove -yq
+sudo apt-get clean cache
 
 log "Finished provisioning."
