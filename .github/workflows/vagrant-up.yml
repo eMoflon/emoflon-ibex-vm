@@ -55,4 +55,4 @@ jobs:
       - name: Release emoflon-vm
         uses: softprops/action-gh-release@v1
         with:
-          files: emoflon-ova/emoflon.ova
+          body: "The VM archive can not be directly added to this release because of the size limitation of 2GB per file."
