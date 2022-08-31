@@ -1,6 +1,6 @@
 # emoflon-vm
 
-[![Build eMoflon VM](https://github.com/maxkratz/emoflon-vm/actions/workflows/vagrant-up.yml/badge.svg?branch=main&event=push)](https://github.com/maxkratz/emoflon-vm/actions/workflows/vagrant-up.yml)
+[![Build eMoflon VM](https://github.com/Echtzeitsysteme/emoflon-vm/actions/workflows/vagrant-up.yml/badge.svg?branch=main&event=push)](https://github.com/Echtzeitsysteme/emoflon-vm/actions/workflows/vagrant-up.yml)
 
 This repository is used to automatically build an [eMoflon](https://emoflon.org) virtual machine (VM).
 
@@ -15,7 +15,7 @@ This repository is used to automatically build an [eMoflon](https://emoflon.org)
 
 ## Usage/Installation
 
-- Download the latest version from the [release page](https://github.com/maxkratz/emoflon-vm/releases/latest).
+- Download the latest version from the [release page](https://github.com/Echtzeitsysteme/emoflon-vm/releases/latest).
 - Install [VirtualBox](https://www.virtualbox.org/) (or another Hypervisor compatible to `OVA` files).
 - Import the `OVA` file as new VM in VirtualBox. (More detailed description can be found [here](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).)
 - Use the credentials `vagrant:vagrant` to login.
