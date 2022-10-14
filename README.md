@@ -21,7 +21,18 @@ This repository is used to automatically build an [eMoflon](https://emoflon.org)
 - Use the credentials `vagrant:vagrant` to login.
 - Use the Eclipse icon on the desktop to start [eMoflon](https://emoflon.org).
 
+
 ## Runner requirements
+
+There are two ways to provide this project with runners.
+
+### GitHub-hosted macOS-based runners
+
+Unfortunately, only the macOS-based GitHub-hosted action runners do support nested virtualization: https://github.com/actions/runner-images/issues/433
+
+Therefore, we've adapted the CI-configuration to provision the **eMoflon-VM** on a macOS-based runner until nested virtualization support gets added to the Linux-based runners.
+
+### Self-hosted Linux-based runners
 
 Currently, all actions must be run by a self-hosted GitHub runner, because GitHub-hosted runners do not provide the VT-x flag:
 ```bash
