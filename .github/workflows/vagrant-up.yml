@@ -4,6 +4,8 @@ on: [push]
 
 jobs:
   vagrant-provision:
+    # Running on macOS, because macOS-based GitHub-hosted action runners do support nested virtualization.
+    # https://github.com/actions/runner-images/issues/433
     runs-on: macos-12
 
     steps:
