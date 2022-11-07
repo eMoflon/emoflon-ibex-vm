@@ -34,6 +34,9 @@ log "Installing OpenJDK."
 sudo apt-get install -y openjdk-17-jdk
 #java --version
 
+# Packages for building a new kernel
+sudo apt-get install -y gcc make perl
+
 # eMoflon Eclipse
 log "Installing eMoflon Eclipse."
 sudo apt-get install -y graphviz
