@@ -4,7 +4,11 @@
 # Config
 #
 
+# Eclipse build to use for provisioning
 ECLIPSE_ARCHIVE=eclipse-emoflon-linux-user
+
+# If true, add tutorial projects to the default Eclipse workspace
+TUTORIAL_PROJECTS=true
 
 set -e
 START_PWD=$PWD
@@ -65,8 +69,7 @@ rm -f $ECLIPSE_ARCHIVE.zip
 # Create desktop launchers
 mkdir -p /home/vagrant/Desktop
 touch /home/vagrant/Desktop/emoflon-app.desktop
-printf "
-[Desktop Entry]
+printf "[Desktop Entry]
 Version=1.0
 Name=eMoflon::IBeX Eclipse
 Comment=Use eMoflon::IBeX Eclipse
@@ -80,8 +83,7 @@ StartupNotify=true
 " > /home/vagrant/Desktop/emoflon-app.desktop
 
 touch /home/vagrant/Desktop/emoflon-website.desktop
-printf "
-[Desktop Entry]
+printf "[Desktop Entry]
 Encoding=UTF-8
 Name=eMoflon::IBeX Website
 Type=Link
@@ -90,8 +92,7 @@ Icon=web-browser
 " > /home/vagrant/Desktop/emoflon-website.desktop
 
 touch /home/vagrant/Desktop/emoflon-tutorial.desktop
-printf "
-[Desktop Entry]
+printf "[Desktop Entry]
 Encoding=UTF-8
 Name=eMoflon::IBeX Tutorial
 Type=Link
@@ -100,8 +101,7 @@ Icon=web-browser
 " > /home/vagrant/Desktop/emoflon-tutorial.desktop
 
 touch /home/vagrant/Desktop/emoflon-tests.desktop
-printf "
-[Desktop Entry]
+printf "[Desktop Entry]
 Encoding=UTF-8
 Name=eMoflon::IBeX Test Suite
 Type=Link
@@ -121,5 +121,16 @@ sudo apt-get remove -yq \
         evolution
 sudo apt-get autoremove -yq
 sudo apt-get clean cache
+
+# Setup tutorial workspace if configured
+if [ "$TUTORIAL_PROJECTS" = true ]; then
+        log "Download and import eMoflon::IBeX tutorial projects into workspace."
+        WS=/home/vagrant/eclipse-workspace
+        rm -rf $WS && mkdir -p $WS/git
+        cd /$WS/git
+        git clone https://github.com/eMoflon/emoflon-ibex-tutorial.git
+        cd /home/vagrant/eclipse-apps/eclipse
+        ./eclipse -noSplash -consoleLog -data $WS -application com.seeq.eclipse.importprojects.headlessimport -importProject $WS/git/emoflon-ibex-tutorial
+fi
 
 log "Finished provisioning."
