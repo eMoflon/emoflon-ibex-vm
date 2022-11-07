@@ -25,6 +25,7 @@ This repository is used to automatically build an [eMoflon](https://emoflon.org)
 - The default configuration for this VM image consists 8GB of RAM and 2 vCPU cores.
 You need at least 8GB to run the full [eMoflon::IBeX test suite](https://github.com/eMoflon/emoflon-ibex-tests). If your PC only has 8GB of RAM available, reduce the RAM capacity of the VM within VirtualBox
 - It is recommend to change the settings to at least 4 vCPU cores.
+- The default Eclipse workspace (`home/vagrant/eclipse-workspace`) contains the [eMoflon::IBeX tutorial projects](https://github.com/eMoflon/emoflon-ibex-tutorial).
 
 
 ## Runner requirements
