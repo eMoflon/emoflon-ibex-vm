@@ -43,7 +43,7 @@ cd ~/eclipse-apps
 # Get eclipse
 if [[ ! -f "./$ECLIPSE_ARCHIVE.zip" ]]; then
 	log "Downloading latest eMoflon Eclipse archive from Github."
-	curl -s https://api.github.com/repos/eMoflon/emoflon-eclipse-build/releases/latest \
+	curl -s https://api.github.com/repos/eMoflon/emoflon-ibex-eclipse-build/releases/latest \
         | grep "$ECLIPSE_ARCHIVE.zip" \
         | cut -d : -f 2,3 \
         | tr -d \" \
@@ -65,9 +65,9 @@ touch /home/vagrant/Desktop/emoflon.desktop
 printf "
 [Desktop Entry]\n
 Version=1.0\n
-Name=eMoflon Eclipse\n
-Comment=Use eMoflon Eclipse\n
-GenericName=eMoflon Eclipse\n
+Name=eMoflon-IBeX Eclipse\n
+Comment=Use eMoflon-IBeX Eclipse\n
+GenericName=eMoflon-IBeX Eclipse\n
 Exec=bash -c \"cd /home/vagrant/eclipse-apps/eclipse && ./eclipse\"\n
 Terminal=false\n
 X-MultipleArgs=false\n
