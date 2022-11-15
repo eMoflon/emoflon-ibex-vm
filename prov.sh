@@ -34,6 +34,9 @@ log "Installing OpenJDK."
 sudo apt-get install -y openjdk-17-jdk
 #java --version
 
+# Packages for building a new kernel
+sudo apt-get install -y gcc make perl
+
 # GIPS Eclipse
 log "Installing GIPS Eclipse."
 sudo apt-get install -y graphviz
@@ -59,7 +62,7 @@ fi
 unzip -qq -o $ECLIPSE_ARCHIVE.zip
 rm -f $ECLIPSE_ARCHIVE.zip
 
-# Create desktop launcher
+# Create desktop launchers
 mkdir -p /home/vagrant/Desktop
 touch /home/vagrant/Desktop/gips.desktop
 printf "
@@ -76,6 +79,38 @@ Icon=/home/vagrant/eclipse-apps/eclipse/icon.xpm\n
 StartupNotify=true\n
 " > /home/vagrant/Desktop/gips.desktop
 chmod u+x /home/vagrant/Desktop/gips.desktop
+
+touch /home/vagrant/Desktop/emoflon-website.desktop
+printf "
+[Desktop Entry]
+Encoding=UTF-8
+Name=eMoflon::IBeX Website
+Type=Link
+URL=https://emoflon.org/ibex
+Icon=web-browser
+" > /home/vagrant/Desktop/emoflon-website.desktop
+
+touch /home/vagrant/Desktop/emoflon-tutorial.desktop
+printf "
+[Desktop Entry]
+Encoding=UTF-8
+Name=eMoflon::IBeX Tutorial
+Type=Link
+URL=https://github.com/eMoflon/emoflon-ibex-tutorial/releases/latest
+Icon=web-browser
+" > /home/vagrant/Desktop/emoflon-tutorial.desktop
+
+touch /home/vagrant/Desktop/emoflon-tests.desktop
+printf "
+[Desktop Entry]
+Encoding=UTF-8
+Name=eMoflon::IBeX Test Suite
+Type=Link
+URL=https://github.com/eMoflon/emoflon-ibex-tests
+Icon=web-browser
+" > /home/vagrant/Desktop/emoflon-tests.desktop
+
+chmod u+x /home/vagrant/Desktop/*.desktop
 
 log "Clean-up"
 sudo apt-get remove -yq \

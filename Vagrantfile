@@ -1,8 +1,10 @@
 Vagrant.configure("2") do |config|
-    config.vm.box = "gusztavvargadr/ubuntu-desktop"
+    config.vm.box = "gusztavvargadr/ubuntu-desktop-2004-lts-xfce"
     config.vm.define 'ubuntu'
     config.vm.provider :virtualbox do |vb|
         vb.name = "gips"
+        vb.memory = 8192
+        vb.cpus = 2
     end
     config.vm.provision "shell", path: "prov.sh", privileged: false
 
