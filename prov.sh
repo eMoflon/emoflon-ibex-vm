@@ -90,25 +90,25 @@ URL=https://emoflon.org/ibex
 Icon=web-browser
 " > /home/vagrant/Desktop/emoflon-website.desktop
 
-touch /home/vagrant/Desktop/emoflon-tutorial.desktop
+touch /home/vagrant/Desktop/gips-examples.desktop
 printf "
 [Desktop Entry]
 Encoding=UTF-8
-Name=eMoflon::IBeX Tutorial
+Name=GIPS Examples
 Type=Link
-URL=https://github.com/eMoflon/emoflon-ibex-tutorial/releases/latest
+URL=https://github.com/Echtzeitsysteme/gips-examples
 Icon=web-browser
-" > /home/vagrant/Desktop/emoflon-tutorial.desktop
+" > /home/vagrant/Desktop/gips-examples.desktop
 
-touch /home/vagrant/Desktop/emoflon-tests.desktop
+touch /home/vagrant/Desktop/gips-tests.desktop
 printf "
 [Desktop Entry]
 Encoding=UTF-8
-Name=eMoflon::IBeX Test Suite
+Name=GIPS Test Suite
 Type=Link
-URL=https://github.com/eMoflon/emoflon-ibex-tests
+URL=https://github.com/Echtzeitsysteme/gips-tests
 Icon=web-browser
-" > /home/vagrant/Desktop/emoflon-tests.desktop
+" > /home/vagrant/Desktop/gips-tests.desktop
 
 chmod u+x /home/vagrant/Desktop/*.desktop
 
