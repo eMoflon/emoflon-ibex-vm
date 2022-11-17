@@ -112,6 +112,15 @@ Icon=web-browser
 
 chmod u+x /home/vagrant/Desktop/*.desktop
 
+log "Install GLPK ILP solver."
+sudo apt-get install -yq \
+        glpk-utils \
+        libglpk-dev \
+        glpk-doc \
+        libglpk-java \
+        libglpk40
+sudo cp /usr/lib/x86_64-linux-gnu/jni/libglpk_java.* /usr/lib
+
 log "Clean-up"
 sudo apt-get remove -yq \
         snapd \
