@@ -11,6 +11,7 @@ This repository is used to automatically build a [GIPS](https://github.com/Echtz
 - [OpenJDK 17](https://openjdk.org/projects/jdk/17/)
 - [Graphviz](https://graphviz.org/)
 - [GIPS Eclipse build](https://github.com/Echtzeitsysteme/gips-eclipse-build) (variant: *eclipse-gips-linux-user*)
+- [GLPK ILP solver](https://www.gnu.org/software/glpk/)
 
 
 ## Usage/Installation
