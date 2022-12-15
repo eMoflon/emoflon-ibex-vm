@@ -27,7 +27,7 @@ jobs:
     runs-on: macos-12
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: show Vagrant version
       run: vagrant --version
     - name: run vagrant up
@@ -39,7 +39,7 @@ jobs:
         vagrant halt
         vboxmanage export emoflon -o emoflon.ova
     - name: upload artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: emoflon-ova
         path: emoflon.ova
