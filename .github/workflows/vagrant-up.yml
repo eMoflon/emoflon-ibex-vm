@@ -22,12 +22,13 @@ on:
 
 jobs:
   vagrant-provision:
-    # Running on macOS, because macOS-based GitHub-hosted action runners do support nested virtualization.
-    # https://github.com/actions/runner-images/issues/433
-    runs-on: macos-12
-
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
+    - name: set up KVM
+      run: |
+        sudo adduser $USER kvm
+        sudo chown -R $USER /dev/kvm
     - name: show Vagrant version
       run: vagrant --version
     - name: run vagrant up
@@ -46,8 +47,8 @@ jobs:
 
   # Create a release if running on tag
   create-release:
-    needs: [vagrant-provision]
-    runs-on: ubuntu-20.04
+    needs: vagrant-provision
+    runs-on: ubuntu-22.04
     # Only run on pushed tags (and explicitely ignore scheduled runs)
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/') && github.event_name != 'schedule'
     steps:
