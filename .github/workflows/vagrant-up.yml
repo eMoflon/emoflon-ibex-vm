@@ -30,7 +30,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: install dependencies
       run: |
-        brew install wget unzip tar sed
+        brew install wget unzip gnu-tar sed
     - name: show Vagrant version
       run: vagrant --version
     - name: run vagrant up
