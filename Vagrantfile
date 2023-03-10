@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
     config.vm.box = "gusztavvargadr/ubuntu-desktop-2004-lts-xfce"
-    config.vm.define 'ubuntu'
+    config.vm.define 'emoflon'
     config.vm.provider :virtualbox do |vb|
         vb.name = "emoflon"
         vb.memory = 8192
