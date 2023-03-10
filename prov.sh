@@ -51,7 +51,7 @@ if [[ ! -f "./$ECLIPSE_ARCHIVE.zip" ]]; then
         | grep "$ECLIPSE_ARCHIVE.zip" \
         | cut -d : -f 2,3 \
         | tr -d \" \
-        | wget --header="Authorization: Bearer ${GITHUB_TOKEN}" -i - \
+        | wget -q --header="Authorization: Bearer ${GITHUB_TOKEN}" -i - \
         || :
 fi
 
