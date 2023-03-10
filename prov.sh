@@ -46,12 +46,12 @@ cd ~/eclipse-apps
 # Get eclipse
 if [[ ! -f "./$ECLIPSE_ARCHIVE.zip" ]]; then
 	log "Downloading latest eMoflon Eclipse archive from Github."
-	curl -s https://api.github.com/repos/eMoflon/emoflon-ibex-eclipse-build/releases/latest \
-        --header 'authorization: Bearer ${GITHUB_TOKEN}' \
+	curl -s --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+        https://api.github.com/repos/eMoflon/emoflon-ibex-eclipse-build/releases/latest \
         | grep "$ECLIPSE_ARCHIVE.zip" \
         | cut -d : -f 2,3 \
         | tr -d \" \
-        | wget -q -i --header="Authorization: Bearer ${GITHUB_TOKEN}" - \
+        | wget --header="Authorization: Bearer ${GITHUB_TOKEN}" -i - \
         || :
 fi
 
