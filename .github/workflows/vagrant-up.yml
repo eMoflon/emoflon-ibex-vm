@@ -43,8 +43,9 @@ jobs:
         vboxmanage export emoflon -o emoflon.ovf
         sed -i -e '/<BIOS>/,/<\/BIOS>/d' emoflon.ovf
         sed -i -e '/<RemoteDisplay enabled="true">/,/<\/RemoteDisplay>/d' emoflon.ovf
-        tar -cvf emoflon.ova emoflon.ovf emoflon-disk001.vmdk
+        gtar -cvf emoflon.ova emoflon.ovf emoflon-disk001.vmdk
         rm -rf emoflon.ovf emoflon-disk001.vmdk
+      # ^gtar (to use gnu-tar) instead of macOS tar
     - name: upload artifact
       uses: actions/upload-artifact@v3
       with:
