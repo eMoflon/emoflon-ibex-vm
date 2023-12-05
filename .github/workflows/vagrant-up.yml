@@ -24,7 +24,9 @@ jobs:
   vagrant-provision:
     # Running on self-hosted system(s), because GitHub-hosted action runners did break too often.
     # https://github.com/actions/runner-images/issues/433
-    runs-on: [self-hosted]
+    runs-on:
+      group: Default
+      labels: [self-hosted, Linux, X64]
     steps:
     - name: clean up old VMs
       run: | 
