@@ -114,7 +114,6 @@ chmod u+x /home/vagrant/Desktop/*.desktop
 
 log "Clean-up"
 sudo apt-get remove -yq \
-        snapd \
         libreoffice-* \
         thunderbird \
         pidgin \
