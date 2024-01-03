@@ -7,7 +7,7 @@ This repository is used to automatically build an [eMoflon](https://emoflon.org)
 
 ## Packages/Configuration
 
-- [Ubuntu 20.04](https://app.vagrantup.com/gusztavvargadr/boxes/ubuntu-desktop)
+- [Ubuntu 22.04](https://app.vagrantup.com/gusztavvargadr/boxes/xubuntu-desktop-2204-lts)
 - [OpenJDK 17](https://openjdk.org/projects/jdk/17/)
 - [Graphviz](https://graphviz.org/)
 - [eMoflon IBeX Eclipse build](https://github.com/eMoflon/emoflon-ibex-eclipse-build) (variant: *eclipse-emoflon-linux-user*)
