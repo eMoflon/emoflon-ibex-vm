@@ -22,12 +22,13 @@ on:
 
 jobs:
   vagrant-provision:
-    # Running on self-hosted system(s), because GitHub-hosted action runners did break too often.
-    # https://github.com/actions/runner-images/issues/433
-    runs-on:
-      group: Default
-      labels: [self-hosted, Linux, X64]
+    runs-on: ubuntu-latest
     steps:
+    - name: enable kvm group perms
+      run: |
+        echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger --name-match=kvm
     - name: clean up old VMs
       run: | 
         vboxmanage list vms | \
