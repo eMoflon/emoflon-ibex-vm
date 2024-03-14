@@ -75,7 +75,7 @@ jobs:
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/') && github.event_name != 'schedule'
     steps:
       - name: collect artifacts
-        uses: actions/download-artifact@4
+        uses: actions/download-artifact@v4
       - name: create splitted ZIP archive
         run: |
           sudo apt-get install -yq zip
@@ -98,7 +98,7 @@ jobs:
           body: "The VM archive can not be directly added to this release because of the size limitation of 2GB per file. Please download the splitted ZIP archive and extract it manually."
           files: emoflon-vm.z02
       - name: release emoflon-vm (4)
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           body: "The VM archive can not be directly added to this release because of the size limitation of 2GB per file. Please download the splitted ZIP archive and extract it manually."
           files: emoflon-vm.z03
