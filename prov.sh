@@ -113,10 +113,10 @@ Icon=web-browser
 chmod u+x /home/vagrant/Desktop/*.desktop
 
 sudo mv /home/vagrant/Desktop/*.desktop /usr/share/xubuntu/applications/
-sudo ln -s /usr/share/xubuntu/applications/emoflon-app.desktop
-sudo ln -s /usr/share/xubuntu/applications/emoflon-website.desktop
-sudo ln -s /usr/share/xubuntu/applications/emoflon-tutorial.desktop
-sudo ln -s /usr/share/xubuntu/applications/emoflon-tests.desktop
+sudo ln -s /usr/share/xubuntu/applications/emoflon-app.desktop /home/vagrant/Desktop/emoflon-app.desktop
+sudo ln -s /usr/share/xubuntu/applications/emoflon-website.desktop /home/vagrant/Desktop/emoflon-website.desktop
+sudo ln -s /usr/share/xubuntu/applications/emoflon-tutorial.desktop /home/vagrant/Desktop/emoflon-tutorial.desktop
+sudo ln -s /usr/share/xubuntu/applications/emoflon-tests.desktop /home/vagrant/Desktop/emoflon-tests.desktop
 
 # Clean up
 log "Clean-up"
