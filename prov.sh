@@ -118,6 +118,15 @@ sudo ln -s /usr/share/xubuntu/applications/emoflon-website.desktop /home/vagrant
 sudo ln -s /usr/share/xubuntu/applications/emoflon-tutorial.desktop /home/vagrant/Desktop/emoflon-tutorial.desktop
 sudo ln -s /usr/share/xubuntu/applications/emoflon-tests.desktop /home/vagrant/Desktop/emoflon-tests.desktop
 
+# Install additional CLI tools
+log "Install additional CLI tools."
+sudo apt-get install -yq \
+        git \
+        ncdu \
+        htop \
+        tmux \
+        rsync
+
 # Clean up
 log "Clean-up"
 sudo apt-get remove -yq \
