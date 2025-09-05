@@ -79,7 +79,7 @@ jobs:
       - name: create splitted ZIP archive
         run: |
           sudo apt-get install -yq zip
-          zip -r -s 1990m emoflon-vm.zip emoflon-ova/emoflon.ova
+          zip -r -s 1990m emoflon-vm.zip emoflon.ova
       # Due to a bug in the release action, we have to upload all artifacts step-by-step
       # https://github.com/softprops/action-gh-release/issues/243
       - name: release emoflon-vm (1)
