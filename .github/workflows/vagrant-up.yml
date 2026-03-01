@@ -62,7 +62,7 @@ jobs:
         tar -cvf emoflon.ova emoflon.ovf emoflon-disk001.vmdk
         rm -rf emoflon.ovf emoflon-disk001.vmdk
     - name: upload artifact
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: emoflon-ova
         path: emoflon.ova
