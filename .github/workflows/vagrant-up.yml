@@ -75,7 +75,7 @@ jobs:
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/') && github.event_name != 'schedule'
     steps:
       - name: collect artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
       - name: create split ZIP archive
         run: |
           sudo apt-get install -yq zip
