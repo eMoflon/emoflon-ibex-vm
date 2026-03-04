@@ -59,6 +59,7 @@ jobs:
         vboxmanage export emoflon -o emoflon.ovf
         sed -i -e '/<BIOS>/,/<\/BIOS>/d' emoflon.ovf
         sed -i -e '/<RemoteDisplay enabled="true">/,/<\/RemoteDisplay>/d' emoflon.ovf
+        sed -i -e '/ovf:href=".*.nvram"/d' emoflon.ovf
         tar -cvf emoflon.ova emoflon.ovf emoflon-disk001.vmdk
         rm -rf emoflon.ovf emoflon-disk001.vmdk
     - name: upload artifact
