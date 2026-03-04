@@ -56,11 +56,7 @@ jobs:
     - name: export VirtualBox VM
       run: |
         vagrant halt
-        vboxmanage export emoflon -o emoflon.ovf
-        sed -i -e '/<BIOS>/,/<\/BIOS>/d' emoflon.ovf
-        sed -i -e '/<RemoteDisplay enabled="true">/,/<\/RemoteDisplay>/d' emoflon.ovf
-        tar -cvf emoflon.ova emoflon.ovf emoflon-disk001.vmdk emoflon.nvram
-        rm -rf emoflon.ovf emoflon-disk001.vmdk emoflon.nvram
+        vboxmanage export emoflon -o emoflon.ova
     - name: upload artifact
       uses: actions/upload-artifact@v7
       with:
